@@ -7,3 +7,7 @@ fetch("../json/DB.json")
             console.log(suma)
         } 
     }, 2000))
+
+    let consultaDona = document.querySelector("#donacion")
+    let contenedorDona = document.createElement("div")
+    contenedorDona.innerHTML= ``
