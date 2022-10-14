@@ -2,53 +2,97 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="inicio" href="../css/inicio.css">
-    <link rel="shortcut icon" href="./img/favicon-16x16.png" type="image/x-icon">
-    <title>Sindicato</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="shortcut icon" href="./img/favicon-16x16.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Sindicato</title>
 </head>
 
 <body>
-    <header class="header">
-        <div>
-
-
-            <ul class="menu">
-                <li><a href="./pages/Registrate.html"> Registrate</a></li>
-                <li><a href="./pages/Membresias.html">Membresias</a></li>
-                <li><a href="./pages/Beneficios.html">Beneficios</a></li>
-                <li><a href="./pages/Producto.html">Producto</a></li>
-                <li><a href="./index.html"><img class="home-img" src="img/hogar.png" alt="" width="50"></a></li>
-            </ul>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid menu">
+        <img src="./img/favicon-16x16.png" alt="" width="30" height="24" class="d-inline-block align-text-top p-1">
+        <a class="navbar-brand" href="#">Sindicato</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="./pages/Registrate.html" class="nav-link active" aria-current="page" href="#">Registrate</a>
+            </li>
+            <li class="nav-item">
+              <a href="./pages/Beneficios.html" class="nav-link active" aria-current="page" href="#">Beneficios</a>
+            </li>
+            <li class="nav-item">
+              <a href="./pages/Producto.html" class="nav-link active" aria-current="page" href="#">Producto</a>
+            </li>
+            <li class="nav-item">
+              <a href="./pages/Membresias.html" class="nav-link active" aria-current="page" href="#">Membresias </a>
+            </li>
+          </ul>
         </div>
-        <div>
-            <h1>Sindicato de Programadores Pobres y Ausentes </h1>
-        </div>
-    </header>
+      </div>
+    </nav>
+    <div class="header-titulo">
+      <h1>Sindicato de Programadores Pobres y Ausentes </h1>
+    </div>
+  </header>
 
+  <main>
+    <div class="contenedor-main">
+      <h5 class="pregunta">¿De que trata el proyecto?</h5>
+      <div class="respuesta">
+        El sindicato trata de un sitio web en el cual se comparten todas las tareas, TPs y Evaluaciones de las
+        materias de todos los años que se puedan conseguir, en el mismo se pueden dar aportaciones de las tareas para
+        compartirlas a nuestros alumnos los cuales estan pasando un año dificil.
+        Por eso mismo, El sindicato asegura poder pasar el año sin ningun esfuerzo
+      </div>
+      <h5 class="pregunta">¿Quienes lo conforman?</h5>
+      <div class="respuesta">
+        Leopoldo Rigau y nadie mas que Leopoldo Rigau
+      </div>
+      <h5 class="pregunta">¿Por Qué lo hago?</h5>
+      <div class="respuesta">
+        Lo hago debido a la presión que me da nuestro señor Sergio Barroso el cual me amenaza todos los Martes y Miercoles
+        con ponerme un 1 y cortarme las piernas.
+      </div>
+      <h5 class="pregunta">Ultima donacion</h5>
+      <div class="respuesta donacion"></div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-basic">
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+      <h6 style="text-align: center; margin-bottom: 20px;">Creado por nuestro Señor Lepoldo Rigau Defensor de pobres y ausentes</h6>
+      <div class="social">
+        <a href="./pages/Registrate.html"><i class="bi bi-person-plus-fill"></i></a>
+        <a href="#"><i class="bi bi-currency-exchange"></i></a>
+        <a href="#"><i class="bi bi-file-earmark-arrow-down-fill"></i></a>
+        <a href="#"><i class="bi bi-credit-card-2-front-fill"></i></a>
+      </div>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="./index.html">Home</a></li>
+        <li class="list-inline-item"><a href="./pages/Registrate.html">Registrate</a></li>
+        <li class="list-inline-item"><a href="./pages/Beneficios.html">Beneficios</a></li>
+        <li class="list-inline-item"><a href="./pages/Producto.html">Producto</a></li>
+        <li class="list-inline-item"><a href="./pages/Membresias.html">Membresias</a></li>
+      </ul>
+      <p class="copyright">LeoNet © 2022</p>
 
-    <br>
-    </main>
-    <hr>
-    <footer>
-        <h6>Creado por nuestro Señor Lepoldo Rigau Defensor de pobres y ausentes</h6>
-    </footer>
-
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+  <script src="./js/local.js"></script>
 </body>
 
 </html>

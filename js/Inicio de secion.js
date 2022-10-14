@@ -1,4 +1,4 @@
-var boton = document.querySelector("button")
+var boton = document.querySelector(".button")
 
 function registrate (){
     var usuario, contraseña;
