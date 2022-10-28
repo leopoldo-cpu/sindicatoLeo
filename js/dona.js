@@ -27,17 +27,15 @@ fetch("../json/DB.json")
                 console.log(suma)
             }
             guardarDona("DonacionArra", JSON.stringify(data.usuarios));
-            let consultaDona = document.querySelector(".donacion")
-            let contenedorDona = document.createElement("div")
-            contenedorDona.innerHTML = `<h2 class="h2Dona"> Plata donada: </h2>
-                <p class="h2Dona"> ${suma} </p>`
-            consultaDona.appendChild(contenedorDona);
+            let consultaDona = document.querySelector(".h2DonaP")
+            consultaDona.innerHTML = `$${suma}`
         }
-        
         
         botonDonar.addEventListener("click", (e) =>{
             e.preventDefault();
+            
             donar();
+            
         })
     }, 2000))
 
