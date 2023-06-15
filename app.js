@@ -1,0 +1,38 @@
+const express = require('express')
+const cors = require('cors')
+const app = express()
+const { MongoClient } = require('mongodb');
+const {ObjectId} = require('mongodb')
+const mongoose = require('mongoose')
+const MONGO_HOST="localhost"
+const MONGO_PUERTO="27017"
+const MONGO_URI="mongodb://root:example@192.168.44.122:27017"
+
+app.use(
+    express.urlencoded({
+        extended:true
+    })
+)
+app.use(
+    express.json({
+        type:"*/*"
+    })
+)
+app.use(cors())
+let vari = {
+    "prueba":"funcional"
+}
+const client = new MongoClient(MONGO_URI) //me conecto con URI
+const dbname = "registro"
+const coll = "usuarios"
+let coleccion = client.db(dbname).collection(coll) //creo el db.coll
+
+async function main(){
+    let insertar = await  coleccion.insertOne(vari) //inserto un documento
+    console.log(insertar);
+}
+main()
+app.listen(3000,(port = 3000)=>{
+    console.log("Hola mundo")
+    console.log("Servidor corriendo en 127.0.0.1:"+port);
+})
