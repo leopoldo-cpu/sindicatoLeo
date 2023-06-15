@@ -33,12 +33,17 @@ let coleccion = client.db(dbname).collection(coll) //creo el db.coll
 
 
 
+
+
+
+
+
 async function main(){
     let insertar = await  coleccion.insertOne(vari) //inserto un documento
     console.log(insertar);
 }
 main()
-app.listen(3120,(port = 3120)=>{
+app.listen(3000,(port = 3000)=>{
     console.log("Hola mundo")
     console.log("Servidor corriendo en 127.0.0.1:"+port);
 })
