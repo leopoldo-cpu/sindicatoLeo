@@ -20,7 +20,11 @@ app.use(
 )
 app.use(cors())
 let vari = {
-    "prueba":"funcional"
+    "Nombre":"funcional",
+    "Gmal":"funcional",
+    "Contraseña":"funcional"
+
+
 }
 const client = new MongoClient(MONGO_URI) //me conecto con URI
 const dbname = "registro"
