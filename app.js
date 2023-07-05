@@ -1,9 +1,13 @@
-const express = require('express')
-const cors = require('cors')
+import express from "express";
+import cors from "cors";
+import handlebars from "express-handlebars";
 const app = express()
-const { MongoClient } = require('mongodb');
-const {ObjectId} = require('mongodb')
-const mongoose = require('mongoose')
+import mongoose from "mongoose"
+import {__dirname} from "./utils.js";
+import {loginRouter} from "./router/login.router.js";
+import {viewsRouter} from "./router/views.router.js";
+import session from "express-session";
+import MongoStore from "connect-mongo";
 const MONGO_HOST="localhost"
 const MONGO_PUERTO="27017"
 const MONGO_URI="mongodb://root:example@192.168.44.122:27017/registro?authSource=admin"
@@ -20,41 +24,38 @@ app.use(
     })
 )
 
-
+app.use(session({
+    store: MongoStore.create({ mongoUrl: 'mongodb://root:example@192.168.44.122:27017/registro?authSource=admin', ttl: 60 }),
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+}))
 
 
 
 app.use(cors())
-let vari = {
-    "Nombre":"funcional",
-    "Gmal":"funcional",
-    "Contraseña":"funcional"
-}
 mongoose.connect(MONGO_URI)//me conecto con URI
 const dbname = "registro"
 const coll = "usuarios"
 
+app.engine("handlebars", handlebars.engine());
+app.set("views", __dirname + "/views");
+app.set("view engine", "handlebars");
+
+app.use("/api/session", loginRouter);
+app.use("/", viewsRouter);
+
 const esquemaUsuarios = new mongoose.Schema({
-    Nombre: String,
-    Gmal: String,
-    Contraseña: String,
-    prueba: String
+    Usuario: String,
+    Gmail: String,
+    Password: String,
 })
 
-const modeloUsuario = mongoose.model(coll, esquemaUsuarios)
-
-
-app.get(("/"), async(rec,res)=>{
-    let usuarios = await modeloUsuario.find()
-    res.send({usuarios})
-})
+export const modeloUsuario = mongoose.model(coll, esquemaUsuarios)
 
 
 
-async function main(){
-    let insertar = await  coleccion.insertOne(vari) //inserto un documento
-    console.log(insertar);
-}
+
 //main()
 app.listen(3120,(port = 3120)=>{
     console.log("Hola mundo")
