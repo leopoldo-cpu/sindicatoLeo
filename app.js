@@ -53,7 +53,11 @@ const esquemaUsuarios = new mongoose.Schema({
 
 export const modeloUsuario = mongoose.model(coll, esquemaUsuarios)
 
-
+app.post("/inicioSesion",(req,res)=>{
+    console.log("Se conecto");
+    console.log(req.body);
+    res.send("funciona")
+})
 
 
 //main()
