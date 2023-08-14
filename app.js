@@ -4,10 +4,12 @@ import handlebars from "express-handlebars";
 const app = express()
 import mongoose from "mongoose"
 import {__dirname} from "./utils.js";
-import {loginRouter} from "./router/login.router.js";
-import {viewsRouter} from "./router/views.router.js";
+import {loginRouter} from "./src/router/login.router.js";
+import {viewsRouter} from "./src/router/views.router.js";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import passport from "passport";
+import initializatePassport from "./src/config/passport.js";
 const MONGO_HOST="localhost"
 const MONGO_PUERTO="27017"
 const MONGO_URI="mongodb://root:example@192.168.44.122:27017/registro?authSource=admin"
@@ -30,7 +32,9 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }))
-
+initializatePassport()
+app.use(passport.initialize())
+app.use(passport.session())
 
 
 app.use(cors())
