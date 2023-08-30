@@ -10,6 +10,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import passport from "passport";
 import initializatePassport from "./src/config/passport.js";
+import { addLogger } from "./utils/logger.js";
 const MONGO_HOST="localhost"
 const MONGO_PUERTO="27017"
 const MONGO_URI="mongodb://root:example@192.168.44.122:27017/registro?authSource=admin"
@@ -25,7 +26,7 @@ app.use(
         type:"*/*"
     })
 )
-
+app.use(addLogger)
 app.use(session({
     store: MongoStore.create({ mongoUrl: 'mongodb://root:example@192.168.44.122:27017/registro?authSource=admin', ttl: 60 }),
     secret: 'secret',
@@ -58,8 +59,8 @@ const esquemaUsuarios = new mongoose.Schema({
 export const modeloUsuario = mongoose.model(coll, esquemaUsuarios)
 
 app.post("/inicioSesion",(req,res)=>{
-    console.log("Se conecto");
-    console.log(req.body);
+    req.logger.info("Se conectó a la base de datos")
+    req.logger.debug(req.body)
     res.send("funciona")
 })
 
@@ -67,5 +68,5 @@ app.post("/inicioSesion",(req,res)=>{
 //main()
 app.listen(3120,(port = 3120)=>{
     console.log("Hola mundo")
-    console.log("Servidor corriendo en 127.0.0.1:"+port);
+    console.log("Servidor corriendo en localhost:"+port)
 })

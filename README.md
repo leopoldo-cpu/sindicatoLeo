@@ -10,3 +10,5 @@
 - Agregue un sistema de encriptado con bcrypt para que no muestre datos sensibles la base de datos
 - Agregue el sistema de estrategias con passport para el login y el register
 - Arregle el sistema de sessions que habia puesto porque lo puse mal
+#### 24/08/2023
+- Agregue un 
