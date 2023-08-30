@@ -11,4 +11,4 @@
 - Agregue el sistema de estrategias con passport para el login y el register
 - Arregle el sistema de sessions que habia puesto porque lo puse mal
 #### 24/08/2023
-- Agregue un 
+- Agregue un logger de inforemacion y de errores 
