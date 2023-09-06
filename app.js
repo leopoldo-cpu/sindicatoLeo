@@ -67,10 +67,9 @@ app.post("/registrarUsuario",async (req,res)=>{
     console.log(req.body);
     let insertar_usuario = await coleccion.insertOne(req.body);
     console.log(insertar_usuario)
-    res.send({"msg":"funciono negrooooo"})
+    res.send({"msg":"funcionooooooooo"})
 })
 
-//main()
 app.listen(3120,(port = 3120)=>{
     console.log("Hola mundo")
     console.log("Servidor corriendo en 127.0.0.1:"+port);
