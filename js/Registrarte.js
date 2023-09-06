@@ -1,5 +1,5 @@
 var boton = document.querySelector(".button")
-const API= 'localhost';
+let API= 'http://localhost:3120';
 function registrate (){
 
     var usuario, contraseña, gmail;
@@ -17,7 +17,8 @@ boton.addEventListener("click", async (e) =>{
     usuario = document.getElementById("usuario").value;
     contraseña = document.getElementById("contraseña").value;
     gmail= document.getElementById("gmail").value;
-    alert ("tu nombre de usuario es :" + usuario +" y tu contraseña es: " + contraseña +" y tu gmail es:"+ gmail);    const registrarUsuario = await fetch(`${API}/registrarUsuario`,{
+    alert ("tu nombre de usuario es :" + usuario +" y tu contraseña es: " + contraseña +" y tu gmail es:"+ gmail);   
+    let registrarUsuario = await fetch(`${API}/registrarUsuario`,{
         method:"POST",
         headers:{"Content-Type":"application/json"
       },

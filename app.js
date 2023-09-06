@@ -4,6 +4,8 @@ import handlebars from "express-handlebars";
 const app = express()
 import mongoose from "mongoose"
 import {__dirname} from "./utils.js";
+import { MongoClient } from 'mongodb';
+
 // import {loginRouter} from "./router/login.router.js";
 // import {viewsRouter} from "./router/views.router.js";
 import session from "express-session";
@@ -34,9 +36,12 @@ app.use(session({
 
 
 app.use(cors())
+const client = new MongoClient(MONGO_URI) //me conecto con URI
+
 mongoose.connect(MONGO_URI)//me conecto con URI
-const dbname = "registro"
+const dbname = "registro"   
 const coll = "usuarios"
+let coleccion = client.db(dbname).collection(coll) //creo el db.coll
 
 app.engine("handlebars", handlebars.engine());
 app.set("views", __dirname + "/views");
@@ -58,10 +63,11 @@ app.post("/inicioSesion",(req,res)=>{
     console.log(req.body);
     res.send("funciona")
 })
-app.post("/registrarUsuario",(req,res)=>{
+app.post("/registrarUsuario",async (req,res)=>{
     console.log(req.body);
-
-    res.send("funciona")
+    let insertar_usuario = await coleccion.insertOne(req.body);
+    console.log(insertar_usuario)
+    res.send({"msg":"funciono negrooooo"})
 })
 
 //main()
