@@ -12,3 +12,11 @@
 - Arregle el sistema de sessions que habia puesto porque lo puse mal
  #### 24/08/2023
 - Agregue un logger de inforemacion y de errores para tener mas informacion de los errores 
+#### 06/09/2023
+- Conecte el register con la base de datos 
+- Agregue un sistema de encriptado con bcrypt para que no muestre datos sensibles de la base de datos
+#### 14/09/2023
+Conecte el login con la base de datos
+Agregue un sistema de encriptado con bcrypt para que no muestre datos sensibles de la base de datos
+#### 21/09/2023
+Pude conectar 

@@ -58,10 +58,24 @@ const esquemaUsuarios = new mongoose.Schema({
 
 export const modeloUsuario = mongoose.model(coll, esquemaUsuarios)
 
-app.post("/inicioSesion",(req,res)=>{
+app.post("/inicioSesion",async(req,res)=>{
     console.log("Se conecto");
     console.log(req.body);
-    res.send("funciona")
+    let FindUser = await coleccion.findOne(req.body);
+    if (FindUser == null) {
+        res.send({
+            msg:"Credenciales incorrectas",
+            login:false,
+        });
+    }else{
+        console.log(FindUser);
+        res.send({
+            msg:"Inicio de sesion exitoso",
+            data:FindUser,
+            login:true
+        })
+    }
+    console.log(FindUser)
 })
 app.post("/registrarUsuario",async (req,res)=>{
     console.log(req.body);
