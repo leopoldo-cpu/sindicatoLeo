@@ -30,14 +30,14 @@ const initializatePassport = () => {
     }
 
   ))
-  passport.use("login", new localStrategy({usernameField: "Gmail", passwordField: "Password"}, async(username, password, done) => {
+  passport.use("login", new localStrategy({usernameField: "Usuario", passwordField: "Password"}, async(username, password, done) => {
     try{
-      const user = await modeloUsuario.findOne({Gmail: username})
+      const user = await modeloUsuario.findOne({Usuario: username})
       if(!user){
         console.log("User dont exist");
         return done(null, false)
       }
-      console.log(password);
+      console.log(user);
       if(!isValidPassword(user, password)) return done(null, false);
       return done(null, user)
     } catch(error) {

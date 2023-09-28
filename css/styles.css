@@ -197,3 +197,80 @@ footer{
   justify-content: center;
   align-content: center;
 }
+html, body {
+  height: 100%; /* Asegura que el cuerpo y el documento HTML ocupen toda la altura de la ventana */
+  margin: 0; /* Elimina el margen predeterminado del cuerpo */
+}
+.linkpdf{
+
+}
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%; /* Hace que la cuadrícula ocupe toda la altura de su contenedor (el cuerpo en este caso) */
+}
+
+.div1, .div2, .div3 {
+  border-right: 1px solid #000; /* Agrega un borde derecho a las columnas */
+  padding-right: 10px; /* Espacio entre el contenido y el borde */
+  text-align: center; /* Centra el texto en la columna */
+}
+
+.div1 {
+  grid-area: 1 / 1 / 7 / 3;
+}
+
+.div2 {
+  grid-area: 1 / 3 / 7 / 5;
+}
+
+.div3 {
+  grid-area: 1 / 5 / 7 / 7;
+}
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 7 / 3;
+  display: flex;
+  flex-direction: column; /* Alinea los elementos en una columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.div1 a {
+  margin: 5px 0; /* Agrega espacio vertical entre los enlaces */
+  text-align: center; /* Centra el texto en los enlaces */
+}
+
+.div1 a:hover {
+  text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; /* Espacio entre las divisiones */
+  text-align: center; /* Centra el texto en todas las divisiones */
+}
+
+.div1, .div2, .div3 {
+  padding: 20px; /* Espacio interno para el contenido */
+  border: 1px solid #ccc; /* Borde para cada división */
+}
+
+.div1 a, .div2 a, .div3 a {
+  display: block; /* Hace que los enlaces ocupen todo el ancho */
+  margin-top: 10px; /* Espacio superior entre los enlaces */
+  text-decoration: none; /* Quita la decoración de subrayado */
+  color: #333; /* Color de texto */
+}
+
+.div1 a:hover, .div2 a:hover, .div3 a:hover {
+  text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
+}

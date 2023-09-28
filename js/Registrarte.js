@@ -24,9 +24,9 @@ boton.addEventListener("click", async (e) =>{
       },
       body: JSON.stringify(
         {
-          nombre:usuario,
-          mail:gmail,
-          contraseña:contraseña
+          Usuario:usuario,
+          Gmail:gmail,
+          Password:contraseña
 
             
         })

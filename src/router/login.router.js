@@ -15,5 +15,4 @@ loginRouter.post("/login", passport.authenticate("login", {failureRedirect: "/fa
       Usuario: req.user.Usuario,
       Gmail: req.user.Gmail,
     };
-      return res.redirect("/profile")
 })

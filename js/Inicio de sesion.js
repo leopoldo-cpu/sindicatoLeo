@@ -5,20 +5,20 @@ async function registrate (){
 
     usuario = document.getElementById("usuario").value;
     contraseña = document.getElementById("contraseña").value;
-    const respuesta = fetch("http://127.0.0.1:3120/inicioSesion",{
+    const respuesta = await fetch("http://127.0.0.1:3120/inicioSesion",{
         method:["POST"],
         headers:{"Content-Type":"application/json"},
         body: JSON.stringify ({
-            nombre:usuario,
-            contraseña:contraseña
+            Usuario:usuario,
+            Password:contraseña
             })})
       
-    let data = await (await respuesta).json();
+    let data =  await respuesta.json();
     console.log(data);
     let msg = document.getElementById("msg");
     if(data.login){
         msg.innerHTML = `${data.msg}`
-        localStorage.setItem("user",data.data.nombre);
+        localStorage.setItem("user",data.user.Usuario);
         localStorage.setItem("login",true);
         setTimeout(() => {
             window.location.href = 'producto.html'
