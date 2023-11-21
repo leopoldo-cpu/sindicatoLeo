@@ -12,9 +12,7 @@ import initializatePassport from "./src/config/passport.js"
 // import {viewsRouter} from "./router/views.router.js";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-const MONGO_HOST="localhost"
-const MONGO_PUERTO="27017"
-const MONGO_URI="mongodb://root:example@192.168.44.122:27017/registro?authSource=admin"
+import config from "./src/config/dotenv.config.js";
 
 
 app.use(
@@ -28,8 +26,10 @@ app.use(
     })
 )
 
+console.log(config.atlasUrl);
+
 app.use(session({
-    store: MongoStore.create({ mongoUrl: 'mongodb://root:example@192.168.44.122:27017/registro?authSource=admin', ttl: 60 }),
+    store: MongoStore.create({ mongoUrl: config.atlasUrl, ttl: 60 }),
     secret: 'secret',
     resave: true,
     saveUninitialized: true,
@@ -40,9 +40,9 @@ app.use(passport.session());
 
 
 app.use(cors())
-const client = new MongoClient(MONGO_URI) //me conecto con URI
+const client = new MongoClient(config.atlasUrl) //me conecto con URI
 
-mongoose.connect(MONGO_URI)//me conecto con URI
+mongoose.connect(config.atlasUrl)//me conecto con URI
 const dbname = "registro"   
 const coll = "usuarios"
 let coleccion = client.db(dbname).collection(coll) //creo el db.coll
